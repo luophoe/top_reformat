@@ -79,10 +79,10 @@ def top_reformat(top_file, result_file):
             list = line.split(",")
             # get rid of the extra content
             for i in range(len(list)):
-                list[i] = stripextra(list[i])
-                list[i] = stripsemicolon(list[i])
-                if list[i] != "":
-                    result_file.write("output           " + list[i] + ";\n")
+                split_list[i] = stripextra(list[i])
+                split_list[i] = stripsemicolon(list[i])
+                if split_list[i] != "":
+                    result_file.write("output           " + split_list[i] + ";\n")
             # identify the type of the declaration
             dec_type = 0
             # if the end of the declaration is reached
@@ -101,7 +101,7 @@ def top_reformat(top_file, result_file):
                 split_list[i] = stripextra(split_list[i])
                 split_list[i] = stripsemicolon(split_list[i])
                 if split_list[i] != "":
-                    result_file.write("input           " + list[i] + ";\n")
+                    result_file.write("input           " + split_list[i] + ";\n")
             # identify the type of the declaration
             dec_type = 1
             # if the end of the declaration is reached
